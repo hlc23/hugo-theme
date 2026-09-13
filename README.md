@@ -93,6 +93,10 @@ Flag: {{</* spoiler */>}}flag{demo}{{</* /spoiler */>}}
 
 ## Local development
 
+Requires Node.js 22+ (Hugo's PostCSS pipeline shells out to Node with the
+`--permission` flag, which older Node 20.x builds reject as an unknown
+option).
+
 ```sh
 cd exampleSite
 npm install
