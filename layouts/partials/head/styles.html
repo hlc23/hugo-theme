@@ -1,0 +1,22 @@
+{{- /* Theme's own Tailwind stylesheet. */ -}}
+{{- $main := resources.Get "css/main.css" -}}
+{{- $main = $main | postCSS (dict "config" "./config/postcss.config.js") -}}
+
+{{- /* Let a site add assets/css/custom.css to extend/override the theme without forking it. */ -}}
+{{- $custom := "" -}}
+{{- with resources.Get "css/custom.css" -}}
+  {{- $custom = . | postCSS (dict "config" "./config/postcss.config.js") -}}
+{{- end -}}
+
+{{- $styles := slice $main -}}
+{{- if $custom -}}
+  {{- $styles = $styles | append $custom -}}
+{{- end -}}
+{{- $styles = $styles | resources.Concat "css/app.css" -}}
+
+{{- if eq hugo.Environment "development" -}}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
+{{- else -}}
+  {{- $styles := $styles | minify | fingerprint | resources.PostProcess -}}
+<link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" />
+{{- end -}}

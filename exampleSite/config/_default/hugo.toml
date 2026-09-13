@@ -1,0 +1,28 @@
+baseURL = "https://example.com/"
+copyright = "2026 - {year}"
+languageCode = "en"
+defaultContentLanguage = "zh-tw"
+title = "Root Theme Demo"
+theme = ["hugo-theme"]
+enableRobotsTXT = true
+summaryLength = 20
+pagination.pagerSize = 5
+
+[languages]
+  [languages.zh-tw]
+    languageName = "繁體中文"
+    weight = 1
+  [languages.en]
+    languageName = "English"
+    weight = 2
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+  [markup.highlight]
+    noClasses = false
+    style = "dracula"
+    lineNos = false

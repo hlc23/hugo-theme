@@ -1,0 +1,29 @@
+name: build exampleSite
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.166.0"
+          extended: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install exampleSite dependencies
+        working-directory: exampleSite
+        run: npm install
+
+      - name: Build exampleSite
+        working-directory: exampleSite
+        run: npm run build

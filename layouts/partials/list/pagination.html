@@ -1,0 +1,19 @@
+{{- /* Pass the page's already-computed paginator in as the context, e.g.
+   {{ partial "list/pagination" $paginator }} — Hugo only allows .Paginate
+   to be invoked once per page, so it must not be called again here. */ -}}
+{{- $paginator := . -}}
+{{- if gt $paginator.TotalPages 1 }}
+<nav class="flex items-center justify-between mt-8 pt-4 border-t border-neutral-100 dark:border-neutral-900 text-sm font-mono" aria-label="Pagination">
+  {{- if $paginator.HasPrev }}
+  <a href="{{ $paginator.Prev.URL }}" class="btn-ghost">← {{ i18n "readMore" }}</a>
+  {{- else }}
+  <span></span>
+  {{- end }}
+  <span class="text-neutral-400 dark:text-neutral-600">{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
+  {{- if $paginator.HasNext }}
+  <a href="{{ $paginator.Next.URL }}" class="btn-ghost">{{ i18n "readMore" }} →</a>
+  {{- else }}
+  <span></span>
+  {{- end }}
+</nav>
+{{- end }}

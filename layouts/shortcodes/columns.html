@@ -1,0 +1,4 @@
+{{- $gap := .Get "gap" -}}
+<div class="cols"{{ with $gap }} style="gap: {{ . }};"{{ end }}>
+  {{- .Inner -}}
+</div>

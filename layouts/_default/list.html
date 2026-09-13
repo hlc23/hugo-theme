@@ -1,0 +1,22 @@
+{{ define "main" }}
+{{- $paginator := .Paginate .Pages -}}
+
+<header class="mb-6">
+  <h1 class="mb-2">{{ .Params.header | default .Title }}</h1>
+  {{- with .Content }}
+  <div class="text-neutral-500 dark:text-neutral-400">{{ . }}</div>
+  {{- end }}
+</header>
+
+{{- if eq (len $paginator.Pages) 0 }}
+<p class="text-neutral-400 dark:text-neutral-500 text-center py-10">{{ i18n "nothingHere" }}</p>
+{{- else }}
+<ul class="flex flex-col">
+  {{- range $paginator.Pages }}
+    {{ partial "list/item" . }}
+  {{- end }}
+</ul>
+{{- end }}
+
+{{ partial "list/pagination" $paginator }}
+{{ end }}

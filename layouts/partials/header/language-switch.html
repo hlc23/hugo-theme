@@ -1,0 +1,11 @@
+{{- if hugo.IsMultilingual }}
+<div class="flex items-center gap-2 text-xs font-mono uppercase" title="{{ i18n "switchLanguage" }}">
+  {{ partial "utils/icon" "globe" }}
+  {{- range .AllTranslations.ByLanguage }}
+    <a
+      href="{{ .Permalink }}"
+      class="no-underline {{ if eq .Language.Lang $.Language.Lang }}text-neutral-900 dark:text-neutral-100 font-bold{{ else }}text-neutral-400 dark:text-neutral-600 hover:text-neutral-700 dark:hover:text-neutral-300{{ end }}"
+    >{{ .Language.Lang }}</a>
+  {{- end }}
+</div>
+{{- end }}

@@ -1,0 +1,9 @@
+description = "Demo site for the Root Hugo theme."
+# avatar = "img/avatar.jpg" # add an image under assets/img/ and uncomment
+favicon = "icons/favicon.ico"
+bio = "A dark, bilingual theme for write-ups and slide decks."
+accentColor = "#10b981"
+numberOfItemsOnHomePage = 5
+
+[giscus]
+  enable = false

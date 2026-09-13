@@ -1,0 +1,7 @@
+{{- $copyright := site.Copyright | default (printf "%d {year}" now.Year) -}}
+<div class="text-xs text-neutral-500 dark:text-neutral-500">
+  © {{ replace $copyright "{year}" now.Year }} —
+  <a href="{{ site.BaseURL }}" class="font-medium">{{ site.Title }}</a>
+  <span>·</span>
+  <a href="https://github.com/hlc23/hugo-theme" target="_blank" rel="noopener noreferrer">Root theme</a>
+</div>

@@ -1,0 +1,13 @@
+{{ define "main" }}
+<header class="mb-6">
+  <h1 class="mb-2">{{ .Title }}</h1>
+</header>
+
+<div class="flex flex-wrap gap-2">
+  {{- range $key, $value := .Data.Terms.ByCount }}
+  <a href="{{ $value.Page.RelPermalink }}" class="pill">
+    {{ $value.Page.LinkTitle }} <span class="opacity-60">({{ $value.Count }})</span>
+  </a>
+  {{- end }}
+</div>
+{{ end }}

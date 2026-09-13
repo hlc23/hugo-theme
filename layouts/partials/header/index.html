@@ -1,0 +1,20 @@
+<header class="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-6 pt-10 pb-8 border-b border-neutral-100 dark:border-neutral-900">
+  {{ partial "header/avatar" . }}
+
+  <div class="flex-1 flex flex-col items-center sm:items-start gap-3 text-center sm:text-left">
+    <a href="{{ site.Home.RelPermalink }}" class="no-underline">
+      <h1 id="site-title" class="text-xl sm:text-2xl font-mono font-bold text-neutral-900 dark:text-neutral-100 mb-0">
+        {{ site.Title }}
+      </h1>
+    </a>
+    {{ with site.Params.bio }}
+    <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-0">{{ . }}</p>
+    {{ end }}
+    {{ partial "header/nav" . }}
+  </div>
+
+  <div class="flex items-center justify-center gap-3">
+    {{ partial "header/language-switch" . }}
+    {{ partial "header/theme-toggle" . }}
+  </div>
+</header>

@@ -1,0 +1,35 @@
+[viewAll]
+  other = 'View all'
+
+[readMore]
+  other = 'Read more'
+
+[summary]
+  other = 'Contents'
+
+[estimatedReadingTime]
+  other = 'Estimated reading time: %d min'
+
+[allTags]
+  other = 'All tags'
+
+[allCategories]
+  other = 'All categories'
+
+[nothingHere]
+  other = 'Nothing here yet.'
+
+[404_title]
+  other = 'Page not found'
+
+[404_text]
+  other = "This page doesn't exist."
+
+[backHome]
+  other = 'Back home'
+
+[toggleTheme]
+  other = 'Toggle color theme'
+
+[switchLanguage]
+  other = 'Switch language'

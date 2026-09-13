@@ -1,0 +1,22 @@
+{{ define "main" }}
+<article>
+  <header class="flex flex-col gap-2 mb-8">
+    <h1 class="mb-0">{{ .Title }}</h1>
+    {{ partial "single/meta" . }}
+  </header>
+
+  {{ partial "single/toc" . }}
+
+  <section>{{ .Content | emojify }}</section>
+
+  {{- with .GetTerms "tags" }}
+  <footer class="flex flex-wrap gap-2 mt-10 pt-6 border-t border-neutral-100 dark:border-neutral-900">
+    {{- range . }}
+    <a href="{{ .RelPermalink }}" class="pill">{{ .LinkTitle }}</a>
+    {{- end }}
+  </footer>
+  {{- end }}
+
+  {{ partial "single/comments/index" . }}
+</article>
+{{ end }}

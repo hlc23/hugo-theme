@@ -1,0 +1,12 @@
+{{- with site.Menus.social }}
+<ul class="flex sm:justify-end gap-4">
+  {{- range . }}
+  <li>
+    <a href="{{ .URL }}" target="_blank" rel="me noopener noreferrer" class="flex items-center gap-1.5 no-underline btn-ghost" title="{{ .Name }}">
+      {{ partial "utils/icon" (lower .Identifier) }}
+      <span class="sr-only">{{ .Name }}</span>
+    </a>
+  </li>
+  {{- end }}
+</ul>
+{{- end }}

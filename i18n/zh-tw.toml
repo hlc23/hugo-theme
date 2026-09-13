@@ -1,0 +1,35 @@
+[viewAll]
+  other = '查看全部'
+
+[readMore]
+  other = '繼續閱讀'
+
+[summary]
+  other = '目錄'
+
+[estimatedReadingTime]
+  other = '預計閱讀時間：%d 分鐘'
+
+[allTags]
+  other = '所有標籤'
+
+[allCategories]
+  other = '所有分類'
+
+[nothingHere]
+  other = '這裡還沒有內容'
+
+[404_title]
+  other = '找不到頁面'
+
+[404_text]
+  other = '這個頁面不存在'
+
+[backHome]
+  other = '返回首頁'
+
+[toggleTheme]
+  other = '切換深淺色主題'
+
+[switchLanguage]
+  other = '切換語言'

@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Root theme — base styles
+   Accent color is a CSS variable so a site can override it via
+   site.Params.accentColor without touching this file.
+   ============================================================ */
+
+@layer base {
+  :root {
+    --accent: #10b981; /* emerald-500 default */
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-white dark:bg-neutral-950 text-neutral-700 dark:text-neutral-300 font-sans text-[17px] leading-relaxed transition-colors duration-200;
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-mono font-bold tracking-tight text-neutral-900 dark:text-neutral-100 scroll-mt-24;
+  }
+
+  h1 { @apply text-3xl sm:text-4xl mb-4; }
+  h2 { @apply text-2xl sm:text-3xl mt-10 mb-4 pb-2 border-b border-neutral-200 dark:border-neutral-800; }
+  h3 { @apply text-xl sm:text-2xl mt-8 mb-3; }
+  h4 { @apply text-lg mt-6 mb-2; }
+  h5, h6 { @apply text-base mt-4 mb-2; }
+
+  p, ul, ol, dl, table, blockquote {
+    @apply mb-5;
+  }
+
+  ul { @apply list-disc pl-6; }
+  ol { @apply list-decimal pl-6; }
+  li > ul, li > ol { @apply mb-0 mt-2; }
+
+  a {
+    @apply underline decoration-neutral-300 dark:decoration-neutral-700 underline-offset-2 transition-colors;
+  }
+  a:hover {
+    text-decoration-color: var(--accent);
+  }
+
+  #content a {
+    @apply font-medium;
+    color: var(--accent);
+  }
+  #content a:hover {
+    @apply opacity-80;
+  }
+
+  code {
+    @apply font-mono text-[0.85em] bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded px-1.5 py-0.5;
+  }
+
+  pre {
+    @apply font-mono text-sm leading-relaxed rounded-lg border border-neutral-200 dark:border-neutral-800 p-4 overflow-x-auto;
+  }
+
+  pre code {
+    @apply bg-transparent border-0 p-0;
+  }
+
+  blockquote {
+    @apply pl-4 italic text-neutral-500 dark:text-neutral-400 border-l-4;
+    border-color: var(--accent);
+  }
+
+  table {
+    @apply w-full text-sm border-collapse;
+  }
+  th, td {
+    @apply border border-neutral-200 dark:border-neutral-800 px-3 py-2 text-left;
+  }
+  th {
+    @apply font-mono bg-neutral-50 dark:bg-neutral-900;
+  }
+
+  hr {
+    @apply my-10 border-neutral-200 dark:border-neutral-800;
+  }
+
+  figure {
+    @apply mb-5;
+  }
+  figcaption {
+    @apply text-sm text-neutral-500 dark:text-neutral-400 mt-2 text-center;
+  }
+
+  img {
+    @apply rounded-lg max-w-full h-auto;
+  }
+}
+
+@layer components {
+  /* Small ghost-style action links (nav, "view all", read more) */
+  .btn-ghost {
+    @apply inline-flex items-center gap-1 text-sm font-medium text-neutral-500 dark:text-neutral-400 no-underline transition-colors;
+  }
+  .btn-ghost:hover {
+    color: var(--accent);
+  }
+
+  /* Tag / category pill */
+  .pill {
+    @apply inline-block font-mono text-xs px-2 py-0.5 rounded-full border border-neutral-200 dark:border-neutral-800 text-neutral-500 dark:text-neutral-400 no-underline transition-colors;
+  }
+  .pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* List/home entry card */
+  .entry-card {
+    @apply flex flex-col gap-1 py-4 border-b border-neutral-100 dark:border-neutral-900 last:border-0;
+  }
+
+  /* Callout / alert boxes used by the "alert" shortcode */
+  .alert-box {
+    @apply rounded-lg border-l-4 px-4 py-3 mb-5 bg-neutral-50 dark:bg-neutral-900/50 text-[0.95em];
+  }
+  .alert-box .alert-title {
+    @apply font-mono font-semibold flex items-center gap-2 mb-1;
+  }
+  .alert-box .alert-icon {
+    @apply w-5 h-5 shrink-0;
+  }
+  .alert-box.info { @apply border-sky-500 text-sky-900 dark:text-sky-200; }
+  .alert-box.warning { @apply border-amber-500 text-amber-900 dark:text-amber-200; }
+  .alert-box.error { @apply border-red-500 text-red-900 dark:text-red-200; }
+  .alert-box.success { @apply border-emerald-500 text-emerald-900 dark:text-emerald-200; }
+
+  /* Spoiler / flag hider used by the "spoiler" shortcode */
+  .spoiler {
+    @apply bg-neutral-800 text-neutral-800 dark:bg-neutral-300 dark:text-neutral-300 rounded px-1 cursor-pointer select-none transition-colors duration-150;
+  }
+  .spoiler.is-revealed {
+    @apply bg-neutral-100 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 cursor-text select-text;
+  }
+
+  /* Responsive columns used by the "columns" / "column" shortcodes */
+  .cols {
+    @apply flex flex-col sm:flex-row gap-6 mb-5;
+  }
+  .cols > .col {
+    @apply flex-1 min-w-0;
+  }
+}
+
+@layer utilities {
+  nav a.active {
+    color: var(--accent) !important;
+  }
+}

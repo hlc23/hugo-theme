@@ -1,0 +1,14 @@
+{{- with site.Params.avatar -}}
+  {{- $avatar := resources.GetMatch . -}}
+  {{- with $avatar -}}
+    {{- $small := .Fill "96x96 q90" -}}
+    <a href="{{ site.Home.RelPermalink }}" class="block flex-none w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden ring-2 ring-neutral-100 dark:ring-neutral-900">
+      <img
+        src="{{ $small.RelPermalink }}"
+        width="96" height="96"
+        alt="{{ site.Title }}"
+        loading="eager"
+      />
+    </a>
+  {{- end -}}
+{{- end -}}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Lang | default `en` }}" class="scroll-smooth">
+  <head>
+    {{- partial "head/index" . -}}
+  </head>
+  <body class="bg-white dark:bg-neutral-950 antialiased">
+    <div class="max-w-screen-md mx-auto px-4 sm:px-6">
+      {{ partial "header/index" . }}
+
+      <main id="content" class="py-8">
+        {{- block "main" . -}}
+        {{- end }}
+      </main>
+
+      {{ partial "footer/index" . }}
+    </div>
+  </body>
+</html>

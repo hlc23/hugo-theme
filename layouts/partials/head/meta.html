@@ -1,0 +1,26 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+<meta name="description" content="{{ .Description | default site.Params.description }}" />
+{{ with site.Params.favicon }}<link rel="icon" href="{{ . | relURL }}" />{{ end }}
+<link rel="canonical" href="{{ .Permalink }}" />
+
+{{ if .IsTranslated }}
+{{ range .Translations }}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
+{{ end }}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
+{{ end }}
+
+<link rel="alternate" type="application/rss+xml" href="{{ with .OutputFormats.Get "rss" }}{{ .Permalink }}{{ end }}" title="{{ site.Title }}" />
+
+<meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}" />
+<meta property="og:description" content="{{ .Description | default site.Params.description }}" />
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+{{ with site.Params.avatar }}<meta property="og:image" content="{{ . | absURL }}" />{{ end }}
+<meta name="twitter:card" content="summary" />
+
+{{ with site.Params.accentColor }}
+<style>:root{--accent: {{ . }};}</style>
+{{ end }}

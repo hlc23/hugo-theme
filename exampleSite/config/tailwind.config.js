@@ -1,0 +1,22 @@
+const path = require("path");
+
+const siteRoot = path.join(__dirname, "..");
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: "class",
+  content: [
+    `${siteRoot}/themes/**/layouts/**/*.html`,
+    `${siteRoot}/content/**/*.md`,
+    `${siteRoot}/layouts/**/*.html`,
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['"Inter"', '"Noto Sans TC"', "-apple-system", "sans-serif"],
+        mono: ['"JetBrains Mono"', "ui-monospace", "monospace"],
+      },
+    },
+  },
+  plugins: [],
+};

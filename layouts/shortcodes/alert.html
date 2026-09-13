@@ -1,0 +1,8 @@
+{{- $severity := .Get 0 | default "info" -}}
+{{- $title := .Get 1 -}}
+<div class="alert-box {{ $severity }}">
+  {{- with $title }}
+  <div class="alert-title">{{ partial "utils/icon" $severity }}{{ . }}</div>
+  {{- end }}
+  <div class="alert-body">{{ .Inner | markdownify }}</div>
+</div>

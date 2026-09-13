@@ -1,0 +1,5 @@
+{{- /* Discord-style spoiler for hiding flags/answers in write-ups. Click to toggle. */ -}}
+<span class="spoiler" role="button" tabindex="0" aria-label="spoiler"
+  onclick="this.classList.toggle('is-revealed')"
+  onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('is-revealed');}"
+>{{ .Inner | markdownify }}</span>

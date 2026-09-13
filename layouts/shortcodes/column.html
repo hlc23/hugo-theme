@@ -1,0 +1,4 @@
+{{- $width := .Get "width" -}}
+<div class="col"{{ with $width }} style="flex: {{ . }};"{{ end }}>
+{{ .Inner | markdownify }}
+</div>

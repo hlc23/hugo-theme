@@ -1,0 +1,9 @@
+{{- /* Renders an inline SVG from assets/icons/<name>.svg, falling back to link.svg. */ -}}
+{{- $name := . -}}
+{{- $icon := resources.GetMatch (printf "icons/%s.svg" $name) -}}
+{{- if not $icon -}}
+  {{- $icon = resources.GetMatch "icons/link.svg" -}}
+{{- end -}}
+{{- with $icon -}}
+  {{- .Content | safeHTML -}}
+{{- end -}}

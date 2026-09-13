@@ -1,0 +1,15 @@
+<div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-mono text-neutral-500 dark:text-neutral-400">
+  <time datetime="{{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" }}" title='{{ .PublishDate.Format "Mon, Jan 2, 2006, 3:04 PM MST" }}'>
+    {{ .PublishDate.Format "2006-01-02" }}
+  </time>
+  <span aria-hidden="true">·</span>
+  <span>{{ printf (i18n "estimatedReadingTime") .ReadingTime }}</span>
+  {{- with .GetTerms "categories" }}
+  <span aria-hidden="true">·</span>
+  <span class="flex flex-wrap gap-2">
+    {{- range . }}
+    <a href="{{ .RelPermalink }}" class="no-underline hover:underline">{{ .LinkTitle }}</a>
+    {{- end }}
+  </span>
+  {{- end }}
+</div>

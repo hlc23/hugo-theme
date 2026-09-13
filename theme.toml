@@ -1,0 +1,35 @@
+# theme.toml for the "Root" Hugo theme
+# See https://github.com/gohugoio/hugoThemes#themetoml for the spec
+
+name = "Root"
+license = "MIT"
+licenselink = "https://github.com/hlc23/hugo-theme/blob/main/LICENSE"
+description = "A dark-first, bilingual Hugo theme for security write-ups, CTF logs, and Reveal.js slide decks."
+homepage = "https://github.com/hlc23/hugo-theme"
+tags = [
+  "dark",
+  "minimal",
+  "blog",
+  "bilingual",
+  "i18n",
+  "security",
+  "ctf",
+  "tailwindcss",
+  "responsive",
+]
+features = [
+  "responsive",
+  "dark-mode",
+  "multilingual",
+  "tailwindcss",
+  "table-of-contents",
+  "giscus-comments",
+  "disqus-comments",
+  "google-analytics",
+  "custom-shortcodes",
+]
+min_version = "0.121.0"
+
+[author]
+  name = "hlc23"
+  homepage = "https://github.com/hlc23"

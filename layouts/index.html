@@ -1,0 +1,27 @@
+{{ define "main" }}
+{{- with .Content }}
+<div class="prose-intro mb-10">{{ . }}</div>
+{{- end }}
+
+{{- $limit := site.Params.numberOfItemsOnHomePage | default 5 -}}
+
+{{- range site.Sections.ByWeight }}
+  {{- $items := .RegularPages -}}
+  {{- if eq (len $items) 0 }}{{ $items = .Sections }}{{ end -}}
+  {{- $items = sort $items "Date" "desc" -}}
+
+  {{- if gt (len $items) 0 }}
+  <section class="mb-10">
+    <div class="flex items-baseline justify-between mb-2">
+      <h2 class="mb-0 pb-0 border-0 mt-0">{{ .Title }}</h2>
+      <a href="{{ .RelPermalink }}" class="btn-ghost">{{ i18n "viewAll" }} {{ partial "utils/icon" "arrow-right" }}</a>
+    </div>
+    <ul class="flex flex-col">
+      {{- range first $limit $items }}
+        {{ partial "list/item" . }}
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+{{- end }}
+{{ end }}
