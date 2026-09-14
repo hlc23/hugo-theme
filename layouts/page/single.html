@@ -1,0 +1,14 @@
+{{- /* Used automatically for standalone top-level pages (e.g. content/about.md),
+   which Hugo assigns Type/Kind "page". Skips the post-only chrome
+   (date, reading time, tags, comments) that _default/single.html renders. */ -}}
+{{ define "main" }}
+<article>
+  <header class="mb-8">
+    <h1 class="mb-0">{{ .Title }}</h1>
+  </header>
+
+  {{ partial "single/toc" . }}
+
+  <section>{{ .Content | emojify }}</section>
+</article>
+{{ end }}

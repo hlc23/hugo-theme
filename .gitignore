@@ -6,3 +6,4 @@ exampleSite/public/
 exampleSite/resources/
 exampleSite/.hugo_build.lock
 .DS_Store
+exampleSite/themes/

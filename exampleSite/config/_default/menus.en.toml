@@ -1,31 +1,31 @@
 [[main]]
   identifier = "home"
   name = "Home"
-  url = "/"
+  url = "/en/"
   weight = 1
 
 [[main]]
   identifier = "post"
   name = "Posts"
-  url = "/posts"
+  url = "/en/posts"
   weight = 2
 
 [[main]]
   identifier = "slides"
   name = "Slides"
-  url = "/slides"
+  url = "/en/slides"
   weight = 3
 
 [[main]]
   identifier = "about"
   name = "About"
-  url = "/about"
+  url = "/en/about"
   weight = 4
 
 [[main]]
   identifier = "tags"
   name = "Tags"
-  url = "/tags"
+  url = "/en/tags"
   weight = 5
 
 [[social]]
