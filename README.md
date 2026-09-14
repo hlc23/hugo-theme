@@ -66,6 +66,11 @@ revealjs:
   image processing the way client-side markdown parsing would.
 ```
 
+Set `markup.highlight.noClasses = true` in your site config (exampleSite
+already does). Reveal pages are a fully standalone document that never loads
+the theme's `main.css`, so class-based Chroma output (`noClasses = false`)
+has no stylesheet to color it — inline-styled output does, everywhere.
+
 Two extra shortcodes exist for deck content:
 
 ```md
