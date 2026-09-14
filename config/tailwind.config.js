@@ -15,6 +15,12 @@ module.exports = {
     `${baseDir}/exampleSite/content/**/*.md`,
     `${baseDir}/exampleSite/layouts/**/*.html`,
   ],
+  // Chroma writes `class="highlight"` (and, with noClasses=false, the
+  // .chroma token classes) only into rendered HTML at build time — that
+  // string never appears in any file the `content` globs above scan, so
+  // Tailwind's tree-shaking would otherwise drop any @layer rule targeting
+  // it as "unused".
+  safelist: ["highlight"],
   theme: {
     extend: {
       fontFamily: {

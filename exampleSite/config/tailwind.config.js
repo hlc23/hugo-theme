@@ -10,6 +10,7 @@ module.exports = {
     `${siteRoot}/content/**/*.md`,
     `${siteRoot}/layouts/**/*.html`,
   ],
+  safelist: ["highlight"],
   theme: {
     extend: {
       fontFamily: {
