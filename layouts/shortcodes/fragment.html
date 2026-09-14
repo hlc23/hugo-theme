@@ -1,0 +1,4 @@
+{{- /* Reveal.js fragment shortcode, revealed on click.
+   Optional class param for fragment variants, e.g. class="fragment fade-in". */ -}}
+{{- $class := .Get "class" | default "fragment" -}}
+<span class="{{ $class }}">{{ .Inner | markdownify }}</span>

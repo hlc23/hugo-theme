@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="{{ site.Language.Lang | default `en` }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>{{ .Title }} · {{ site.Title }}</title>
+    {{ with site.Params.favicon }}<link rel="icon" href="{{ . | relURL }}" />{{ end }}
+
+    {{- $revealVersion := site.Params.revealjsVersion | default "5.1.0" -}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@{{ $revealVersion }}/dist/reveal.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@{{ $revealVersion }}/dist/theme/{{ .Param `revealjs.theme` | default `black` }}.css" />
+
+    {{- with .Param `revealjs.background` }}
+    <style>.reveal { background: {{ . }}; }</style>
+    {{- end }}
+
+    {{ partial "head/analytics" . }}
+  </head>
+  <body>
+    {{- block "main" . }}{{ end }}
+
+    {{- $hash := .Param `revealjs.hash` -}}
+    {{- $controls := .Param `revealjs.controls` -}}
+    {{- $progress := .Param `revealjs.progress` -}}
+    {{- $center := .Param `revealjs.center` -}}
+    {{- $transition := .Param `revealjs.transition` | default "slide" -}}
+    <script type="module">
+      import Reveal from 'https://cdn.jsdelivr.net/npm/reveal.js@{{ $revealVersion }}/dist/reveal.esm.js';
+      import Notes from 'https://cdn.jsdelivr.net/npm/reveal.js@{{ $revealVersion }}/plugin/notes/notes.esm.js';
+
+      Reveal.initialize({
+        hash: {{ if eq $hash nil }}true{{ else }}{{ $hash }}{{ end }},
+        controls: {{ if eq $controls nil }}true{{ else }}{{ $controls }}{{ end }},
+        progress: {{ if eq $progress nil }}true{{ else }}{{ $progress }}{{ end }},
+        center: {{ if eq $center nil }}true{{ else }}{{ $center }}{{ end }},
+        transition: {{ $transition }},
+        plugins: [Notes],
+      });
+    </script>
+  </body>
+</html>

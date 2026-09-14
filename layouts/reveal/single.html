@@ -1,0 +1,21 @@
+{{- /* Native Reveal.js deck. Front matter `type: "reveal"` on a regular
+   page routes it here (see layouts/reveal/baseof.html), bypassing Root's
+   normal header/footer/tailwind chrome entirely.
+
+   Slides are authored as ordinary markdown, separated by a thematic
+   break (`---` on its own line), which goldmark renders as <hr>. That
+   keeps the full Hugo pipeline — shortcodes, syntax highlighting,
+   image processing — working inside a deck, unlike feeding raw
+   markdown to Reveal's client-side markdown plugin. */ -}}
+{{ define "main" }}
+{{- $sep := "@@ROOT-REVEAL-SLIDE-BREAK@@" -}}
+{{- $html := replaceRE `<hr\s*/?>` $sep .Content -}}
+{{- $slides := split $html $sep -}}
+<div class="reveal">
+  <div class="slides">
+    {{- range $slides }}
+    <section>{{ . | safeHTML }}</section>
+    {{- end }}
+  </div>
+</div>
+{{ end }}

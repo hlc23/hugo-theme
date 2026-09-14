@@ -1,20 +1,20 @@
 # Root — a Hugo theme for write-ups and slide decks
 
 A dark-first, bilingual Hugo theme built for a personal blog that mixes
-long-form security / CTF write-ups with [Reveal.js](https://revealjs.com)
-slide decks (via [reveal-hugo](https://github.com/dzello/reveal-hugo)).
-Single column, Tailwind CSS, no client-side framework.
+long-form security / CTF write-ups with native [Reveal.js](https://revealjs.com)
+slide decks — no second theme needed. Single column, Tailwind CSS, no
+client-side framework beyond Reveal itself.
 
 ## Features
 
 - Dark mode by default, with a no-flash theme toggle persisted in `localStorage`
 - Built-in multilingual support (language switcher in the header, `i18n/en.toml` + `i18n/zh-tw.toml` included)
 - Avatar + nav header, unified homepage feed that lists every top-level content section (posts, slides, …)
+- Native Reveal.js slide decks (`type: "reveal"`) — see below
 - Shortcodes made for write-ups: `alert`, `spoiler` (Discord-style flag hider), `columns`/`column`, `figure`
 - Table of contents, reading time, tags/categories
 - Giscus or Disqus comments, Google Analytics, RSS
 - Tailwind CSS with a single `--accent` CSS variable for re-theming
-- Designed to sit alongside a second theme (e.g. `reveal-hugo`) for slide decks — see below
 
 ## Installation
 
@@ -35,22 +35,58 @@ Then run `npm install` at your site root and add `config/postcss.config.js` /
 the ones under `exampleSite/config/` as a starting point) — Hugo resolves
 PostCSS config paths relative to your site root, not the theme.
 
-## Combining with reveal-hugo
+## Slide decks (Reveal.js)
 
-The blog this theme was extracted from keeps slide decks in their own
-`content/slides/` section and renders them with `reveal-hugo` as a **second**
-theme:
+Give a regular content page `type: "reveal"` in its front matter and it
+renders as a full-screen [Reveal.js](https://revealjs.com) deck — its own
+`<html>`, no Root header/footer/Tailwind — instead of a normal article.
+Reveal's JS/CSS load from a CDN, so there's nothing to `npm install`.
+
+Slides are just markdown, separated by a thematic break (`---` on its own
+line):
+
+```md
+---
+title: "My Deck"
+type: "reveal"
+revealjs:
+  theme: "black"      # any Reveal.js theme name
+  transition: "slide"
+---
+
+# First slide
+
+---
+
+## Second slide
+
+- Regular markdown, shortcodes, and syntax-highlighted code fences all work,
+  because slides go through Hugo's normal render pipeline — the deck only
+  splits the *already-rendered* HTML on `<hr>`. Nothing bypasses chroma or
+  image processing the way client-side markdown parsing would.
+```
+
+Two extra shortcodes exist for deck content:
+
+```md
+{{</* fragment */>}}revealed one click at a time{{</* /fragment */>}}
+
+{{</* notes */>}}only visible in Reveal's speaker view (press `S`){{</* /notes */>}}
+```
+
+Available `revealjs` front-matter keys: `theme`, `transition`, `background`
+(CSS value, sets `.reveal`'s background), `hash`, `controls`, `progress`,
+`center` (all four default to `true`). `site.Params.revealjsVersion`
+overrides the pinned Reveal.js version (default `5.1.0`) sitewide.
+
+This covers a single flat deck; it does not (yet) replicate
+[reveal-hugo](https://github.com/dzello/reveal-hugo)'s chaptered decks,
+per-slide backgrounds, or PDF export. For those, add reveal-hugo as a
+second theme instead of using `type: "reveal"`:
 
 ```toml
 theme = ["hugo-theme", "reveal-hugo"]
 ```
-
-`reveal-hugo` decks set `outputs = ["Reveal"]` in front matter and use their
-own `baseof.reveal.html`, so they never touch Root's `baseof.html`. Root only
-needs to know the section exists to list it on the homepage and in
-`/slides/` — see `layouts/index.html`, which lists every top-level section
-generically (using `.RegularPages`, falling back to `.Sections` for a section
-whose children are themselves decks).
 
 ## Params
 
