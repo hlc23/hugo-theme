@@ -14,7 +14,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['"Huninn"', '"Inter"', '"Noto Sans TC"', "-apple-system", "sans-serif"],
-        mono: ['"JetBrains Mono"', "ui-monospace", "monospace"],
+        mono: ["Consolas", '"Courier New"', "monospace"],
       },
     },
   },
