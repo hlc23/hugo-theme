@@ -40,7 +40,7 @@ type: "reveal"
 
 ## 一樣支援程式碼高亮
 
-```python
+```py
 from pwn import *
 
 io = remote("chal.example.com", 1337)
