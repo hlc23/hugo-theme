@@ -61,6 +61,7 @@ whose children are themselves decks).
   favicon = "icons/favicon.ico"  # resolved from static/ or assets/
   bio = "One-line tagline under the site title"
   accentColor = "#10b981"        # any CSS color; overrides the default emerald
+  googleFont = "Huninn"          # any Google Fonts family name; false disables loading one
   numberOfItemsOnHomePage = 5
 
   [params.giscus]

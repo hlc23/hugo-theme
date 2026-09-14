@@ -1,0 +1,11 @@
+{{- /* Google Fonts loader. Override the family via site.Params.googleFont;
+   defaults to Huninn (思源圓體家族的可愛版), a rounded typeface with solid
+   Traditional Chinese + Latin coverage — matches assets/css/main.css's
+   `font-sans` stack. Set params.googleFont = false to disable entirely. */ -}}
+{{- $family := site.Params.googleFont -}}
+{{- if ne $family false -}}
+  {{- $family = $family | default "Huninn" -}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family={{ replace $family " " "+" }}&display=swap" rel="stylesheet">
+{{- end -}}

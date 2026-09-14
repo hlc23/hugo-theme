@@ -19,6 +19,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: [
+          '"Huninn"',
           '"Inter"',
           '"Noto Sans TC"',
           "-apple-system",

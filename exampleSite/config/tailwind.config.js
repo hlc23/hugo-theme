@@ -13,7 +13,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Inter"', '"Noto Sans TC"', "-apple-system", "sans-serif"],
+        sans: ['"Huninn"', '"Inter"', '"Noto Sans TC"', "-apple-system", "sans-serif"],
         mono: ['"JetBrains Mono"', "ui-monospace", "monospace"],
       },
     },
