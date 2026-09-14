@@ -18,7 +18,7 @@ This is a demo post showing how **Root** renders a regular article.
 
 ## Analysis
 
-```python {lineNos=true}
+```python {lineNos=inline tabWidth=2}
 from pwn import *
 
 io = remote("chal.example.com", 1337)
