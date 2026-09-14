@@ -1,5 +1,5 @@
 {{- if hugo.IsMultilingual }}
-<div class="flex items-center gap-2 text-xs font-mono uppercase" title="{{ i18n "switchLanguage" }}">
+<div class="flex items-center gap-2 text-xs font-sans uppercase" title="{{ i18n "switchLanguage" }}">
   {{ partial "utils/icon" "globe" }}
   {{- range .AllTranslations.ByLanguage }}
     <a

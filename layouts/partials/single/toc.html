@@ -1,6 +1,6 @@
 {{- if and .TableOfContents (ne .Params.tableOfContents false) }}
 <aside class="toc rounded-lg border border-neutral-200 dark:border-neutral-800 p-4 mb-8">
-  <p class="font-mono text-xs uppercase tracking-wide text-neutral-400 dark:text-neutral-500 mb-2">{{ i18n "summary" }}</p>
+  <p class="font-sans text-xs uppercase tracking-wide text-neutral-400 dark:text-neutral-500 mb-2">{{ i18n "summary" }}</p>
   <div class="text-sm [&_ul]:list-none [&_ul]:pl-4 [&_ul]:mb-0 [&_li]:mb-1">
     {{ .TableOfContents }}
   </div>

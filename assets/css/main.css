@@ -27,7 +27,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-mono font-bold tracking-tight text-neutral-900 dark:text-neutral-100 scroll-mt-24;
+    @apply font-sans font-bold tracking-tight text-neutral-900 dark:text-neutral-100 scroll-mt-24;
   }
 
   h1 { @apply text-3xl sm:text-4xl mb-4; }
@@ -83,7 +83,7 @@
     @apply border border-neutral-200 dark:border-neutral-800 px-3 py-2 text-left;
   }
   th {
-    @apply font-mono bg-neutral-50 dark:bg-neutral-900;
+    @apply font-sans font-semibold bg-neutral-50 dark:bg-neutral-900;
   }
 
   hr {
@@ -113,7 +113,7 @@
 
   /* Tag / category pill */
   .pill {
-    @apply inline-block font-mono text-xs px-2 py-0.5 rounded-full border border-neutral-200 dark:border-neutral-800 text-neutral-500 dark:text-neutral-400 no-underline transition-colors;
+    @apply inline-block font-sans text-xs px-2 py-0.5 rounded-full border border-neutral-200 dark:border-neutral-800 text-neutral-500 dark:text-neutral-400 no-underline transition-colors;
   }
   .pill:hover {
     border-color: var(--accent);
@@ -130,7 +130,7 @@
     @apply rounded-lg border-l-4 px-4 py-3 mb-5 bg-neutral-50 dark:bg-neutral-900/50 text-[0.95em];
   }
   .alert-box .alert-title {
-    @apply font-mono font-semibold flex items-center gap-2 mb-1;
+    @apply font-sans font-semibold flex items-center gap-2 mb-1;
   }
   .alert-box .alert-icon {
     @apply w-5 h-5 shrink-0;
